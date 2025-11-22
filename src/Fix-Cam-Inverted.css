@@ -3,5 +3,5 @@
 }
 
 [class*='layerContainer_'] [class*='pictureInPicture_'] [class*='media-engine-video'][class*='media_'] {
-  transform: scaleX(-1);
+  transform: scaleX(-1) !important;
 }
