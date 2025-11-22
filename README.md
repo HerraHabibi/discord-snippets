@@ -38,7 +38,7 @@ Shows only the people in VCs on the active now tab
 <details>
   <summary>Before/After</summary>
 
-  ![Hide DM Game Activity](https://i.imgur.com/PgunQLm.png)
+  ![Hide Non VC Content On Active Now](https://i.imgur.com/PgunQLm.png)
 </details>
 
 #### Hide Activity On Server Member List
@@ -67,4 +67,18 @@ Hides your own activity on the panel section (bottom left)
   <summary>Before/After</summary>
 
   ![Hide Your Activity On Panel](https://i.imgur.com/pwksupH.png)
+</details>
+
+#### Fix Cam Inverted
+
+Fixes the bug that makes your own camera look inverted, so you see it the way others see it
+
+```css
+@import url('https://raw.githubusercontent.com/HerraHabibi/discord-css/refs/heads/main/src/Fix-Cam-Inverted.css');
+```
+
+<details>
+  <summary>Before/After</summary>
+
+  ![Fix Cam Inverted](https://i.imgur.com/LKTx3qP.png)
 </details>
