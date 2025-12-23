@@ -1,3 +1,11 @@
+/* -- OLD DISCORD TAGS -- */
+
 [class*='base_'] [class*='sidebar_'] [class*='panels_'] [class*='activityPanel_'] {
+  display: none !important;
+}
+
+/* -- NEW DISCORD TAGS -- */
+
+[class*='-base'] [class*='-sidebar'] [class*='-panels'] [class*='-activityPanel'] {
   display: none !important;
 }
