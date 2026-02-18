@@ -1,7 +1,3 @@
 [class*='base_'] [class*='callContainer_'] [class*='media-engine-video'][class*='mirror_'] {
   transform: none !important;
 }
-
-[class*='layerContainer_'] [class*='pictureInPicture_'] [class*='media-engine-video'][class*='media_'] {
-  transform: scaleX(-1) !important;
-}
