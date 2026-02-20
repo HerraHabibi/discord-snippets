@@ -45,7 +45,7 @@ This completes your Discord quests automatically without having to play the game
   1. Go to your Discord installation folder, usually in ``%appdata%\discord\``
   2. Open the ``settings.json`` file (if it doesn't exist, create it)
   3. Paste the code below:
-     - If it's just copy and paste this: 
+     - If it's empty just copy and paste this: 
         ```json
         {
           "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true
