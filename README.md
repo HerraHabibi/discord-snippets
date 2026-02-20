@@ -1,10 +1,10 @@
 <div align="center">
 
-  ## Discord CSS Snippets by HerraHabibi
+  ## Discord Snippets by HerraHabibi
 
 </div>
 
-### Installation Guide
+### Style Snippets Installation Guide
 
 <details>
   <summary>Vencord Guide</summary>
@@ -20,19 +20,16 @@
   ![Step 3](https://i.imgur.com/dsNWmd3.png)
 </details>
 
-> [!NOTE] 
-> To use these snippets correctly, you must paste the ``@import`` parts first, then the ``:root`` parts and finally other custom snippets without ``@import``
-
 <hr>
 
-### Snippets
+### Style Snippets
 
 #### Hide Non VC Content On Active Now
 
 Shows only the people in VCs on the active now tab
 
 ```css
-@import url('https://raw.githubusercontent.com/HerraHabibi/discord-css/refs/heads/main/src/Hide-Non-Vc-Content-On-Active-Now.css');
+@import url('https://raw.githubusercontent.com/HerraHabibi/discord-snippets/refs/heads/main/src/Hide-Non-Vc-Content-On-Active-Now.css');
 ```
 
 <details>
@@ -46,7 +43,7 @@ Shows only the people in VCs on the active now tab
 Hides the activity on the server member list
 
 ```css
-@import url('https://raw.githubusercontent.com/HerraHabibi/discord-css/refs/heads/main/src/Hide-Activity-On-Server-Member-List.css');
+@import url('https://raw.githubusercontent.com/HerraHabibi/discord-snippets/refs/heads/main/src/Hide-Activity-On-Server-Member-List.css');
 ```
 
 <details>
@@ -60,7 +57,7 @@ Hides the activity on the server member list
 Hides your own activity on the panel section (bottom left)
 
 ```css
-@import url('https://raw.githubusercontent.com/HerraHabibi/discord-css/refs/heads/main/src/Hide-Your-Activity-On-Panel.css');
+@import url('https://raw.githubusercontent.com/HerraHabibi/discord-snippets/refs/heads/main/src/Hide-Your-Activity-On-Panel.css');
 ```
 
 <details>
@@ -74,7 +71,7 @@ Hides your own activity on the panel section (bottom left)
 Fixes the bug that makes your own camera look inverted, so you see it the way others see it
 
 ```css
-@import url('https://raw.githubusercontent.com/HerraHabibi/discord-css/refs/heads/main/src/Fix-Cam-Inverted.css');
+@import url('https://raw.githubusercontent.com/HerraHabibi/discord-snippets/refs/heads/main/src/Fix-Cam-Inverted.css');
 ```
 
 <details>
