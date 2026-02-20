@@ -8,7 +8,7 @@
 
 #### Quest Completer
 
-This completes your Discord quests automatically without having to play the game, watch the video or stream the game. This script is based on the [Complete Discord Quest script by aamiaa repository](https://gist.github.com/aamiaa/204cd9d42013ded9faf646fae7f89fbb).
+This completes your Discord quests automatically without having to play the game, watch the video or stream the game. This script is based on the [Complete Discord Quest script by aamiaa](https://gist.github.com/aamiaa/204cd9d42013ded9faf646fae7f89fbb) repository.
 
 - English version
 
@@ -77,13 +77,13 @@ This completes your Discord quests automatically without having to play the game
 <details>
   <summary>It throws an error in the console</summary>
 
-  If you are sure that you are doing everything right, wait until I fix it, I'll try to fix it as soon as possible. You always can check the [opened issues](https://github.com/HerraHabibi/discord-snippets/issues) and if it doesn't exist, create it.
+  If you are sure that you are doing everything right, wait until I fix it, I'll try to fix it as soon as possible. You always can check the [issues](https://github.com/HerraHabibi/discord-snippets/issues) and if it doesn't exist, create it.
 </details>
 
 <details>
   <summary>I have a doubt, error not mentioned above or suggestion</summary>
 
-  Please check the [opened issues](https://github.com/HerraHabibi/discord-snippets/issues) and if it doesn't exist, create it. I will try to resolve it as soon as possible.
+  Please check the [issues](https://github.com/HerraHabibi/discord-snippets/issues?q=is%3Aissue) and if it doesn't exist, create it. I will try to resolve it as soon as possible.
 </details>
 
 <hr>
