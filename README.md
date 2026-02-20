@@ -13,13 +13,13 @@ This completes your Discord quests automatically without having to play the game
 - English version
 
   ```js
-  eval(await(await fetch("https://raw.githubusercontent.com/HerraHabibi/discord-snippets/main/src/Quest-Completer-EN.js")).text());
+  eval(await(await fetch('https://raw.githubusercontent.com/HerraHabibi/discord-snippets/main/src/Quest-Completer-EN.js')).text());
   ```
 
 - Spanish version
 
   ```js
-  eval(await(await fetch("https://raw.githubusercontent.com/HerraHabibi/discord-snippets/main/src/Quest-Completer-ES.js")).text());
+  eval(await(await fetch('https://raw.githubusercontent.com/HerraHabibi/discord-snippets/main/src/Quest-Completer-ES.js')).text());
   ```
 
 <details>
