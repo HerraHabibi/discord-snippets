@@ -6,7 +6,7 @@ let ApplicationStreamingStore = Object.values(wpRequire.c).find(x => x?.exports?
 let RunningGameStore = Object.values(wpRequire.c).find(x => x?.exports?.Ay?.getRunningGames).exports.Ay;
 let QuestsStore = Object.values(wpRequire.c).find(x => x?.exports?.A?.__proto__?.getQuest).exports.A;
 let ChannelStore = Object.values(wpRequire.c).find(x => x?.exports?.A?.__proto__?.getAllThreadsForParent).exports.A;
-let GuildChannelStore = Object.values(wpRequire.c).find(x => x?.exports?.Ay?.getSFWDefaultChannel).exports.Ay;
+let GuildChannelStore = Object.values(wpRequire.c).find(x => x?.exports?.A?.__proto__?.getSFWDefaultChannel).exports.A;
 let FluxDispatcher = Object.values(wpRequire.c).find(x => x?.exports?.h?.__proto__?.flushWaitQueue).exports.h;
 let api = Object.values(wpRequire.c).find(x => x?.exports?.Bo?.get).exports.Bo;
 
@@ -35,36 +35,36 @@ if (quests.length === 0) {
 
 		const pid = Math.floor(Math.random() * 30000) + 1000;
 
-		const applicationId = quest.config.application.id;
-		const applicationName = quest.config.application.name;
 		const questName = quest.config.messages.questName;
 		const taskConfig = quest.config.taskConfig ?? quest.config.taskConfigV2;
 		const taskName = supportedTasks.find(x => taskConfig.tasks[x] != null);
-		const secondsNeeded = taskConfig.tasks[taskName].target;
+		const taskData = taskConfig.tasks[taskName];
+		const applicationId = quest.config.application?.id ?? taskData.applications?.[0]?.id;
+		const applicationName = quest.config.application?.name ?? questName;
+		const secondsNeeded = taskData.target;
 		let secondsDone = quest.userStatus?.progress?.[taskName]?.value ?? 0;
 
 		if (taskName === "WATCH_VIDEO" || taskName === "WATCH_VIDEO_ON_MOBILE") {
-			const maxFuture = 10, speed = 7, interval = 1;
+			const speed = 7;
 			const enrolledAt = new Date(quest.userStatus.enrolledAt).getTime();
 			let completed = false;
 
 			let fn = async () => {
 				while (true) {
-					const maxAllowed = Math.floor((Date.now() - enrolledAt) / 1000) + maxFuture;
-					const diff = maxAllowed - secondsDone;
+					const remaining = Math.min(speed, secondsNeeded - secondsDone);
+					await new Promise(resolve => setTimeout(resolve, remaining * 1000));
+
 					const timestamp = secondsDone + speed;
+					const res = await api.post({
+						url: `/quests/${quest.id}/video-progress`,
+						body: { timestamp: Math.min(secondsNeeded, timestamp + Math.random()) }
+					});
+					completed = res.body.completed_at != null;
+					secondsDone = Math.min(secondsNeeded, timestamp);
 
-					if (diff >= speed) {
-						const res = await api.post({
-							url: `/quests/${quest.id}/video-progress`,
-							body: { timestamp: Math.min(secondsNeeded, timestamp + Math.random()) }
-						});
-						completed = res.body.completed_at != null;
-						secondsDone = Math.min(secondsNeeded, timestamp);
+					if (timestamp >= secondsNeeded) {
+						break;
 					}
-
-					if (timestamp >= secondsNeeded) break;
-					await new Promise(resolve => setTimeout(resolve, interval * 1000));
 				}
 
 				if (!completed) {
@@ -80,9 +80,7 @@ if (quests.length === 0) {
 
 			fn();
 			console.log(`Spoofing video for: "${questName}".`);
-		}
-
-		else if (taskName === "PLAY_ON_DESKTOP") {
+		} else if (taskName === "PLAY_ON_DESKTOP") {
 			if (!isApp) {
 				console.log(`This doesn't work in browser for non-video quests. Use the desktop app to complete the "${questName}" quest.`);
 			} else {
@@ -135,12 +133,10 @@ if (quests.length === 0) {
 					};
 
 					FluxDispatcher.subscribe("QUESTS_SEND_HEARTBEAT_SUCCESS", fn);
-					console.log(`Spoofed your game to: ${applicationName}. Time remaining: ${formatTime(secondsNeeded - secondsDone)}.`);
+					console.log(`Spoofed your game to: ${appData.name}. Time remaining: ${formatTime(secondsNeeded - secondsDone)}.`);
 				});
 			}
-		}
-
-		else if (taskName === "STREAM_ON_DESKTOP") {
+		} else if (taskName === "STREAM_ON_DESKTOP") {
 			if (!isApp) {
 				console.log(`This doesn't work in browser for non-video quests. Use the desktop app to complete the "${questName}" quest.`);
 			} else {
@@ -170,9 +166,7 @@ if (quests.length === 0) {
 				console.log(`Spoofed your stream to ${applicationName}. Time remaining: ${formatTime(secondsNeeded - secondsDone)}.`);
 				console.log("Remember that you need at least 1 other person in the voice channel.");
 			}
-		}
-
-		else if (taskName === "PLAY_ACTIVITY") {
+		} else if (taskName === "PLAY_ACTIVITY") {
 			const channelId =
 				ChannelStore.getSortedPrivateChannels()[0]?.id ??
 				Object.values(GuildChannelStore.getAllGuilds()).find(x => x != null && x.VOCAL.length > 0).VOCAL[0].channel.id;
