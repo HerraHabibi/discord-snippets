@@ -10,6 +10,21 @@
 
 This completes your Discord quests automatically without having to play the game, watch the video or stream the game. This script is based on the [Complete Discord Quest script by aamiaa](https://gist.github.com/aamiaa/204cd9d42013ded9faf646fae7f89fbb) repository.
 
+> [!CAUTION]
+> **Use this at your own risk**
+>
+> <details>
+>   <summary>On <b>April 7th 2026</b>, Discord added a detection system that sends a warning message if you get caught using scripts to automate quests</summary>
+>
+>   ![Discord quest automation warning](https://i.imgur.com/nfYqbi2.png)
+> </details>
+> 
+> <details>
+>   <summary>On <b>August 26th 2026</b>, Discord started suspending users from participating in quests for using scripts like this</summary>
+>
+>   ![Discord quest suspension notice](https://i.imgur.com/zURrV9n.png)
+> </details>
+
 - English version
 
   ```js
@@ -192,3 +207,4 @@ Add one of these below or create your own:
       "  |、˜〵\  \a"
     "    じしˍ,)ノ";
 }
+```
